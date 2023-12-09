@@ -1,14 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Dhurjati&family=Mina&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dhurjati&family=Merriweather&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   @apply bg-custom-body bg-radial-body;
-}
-
-@layer base {
-  html {
-    font-family: "Mina", system-ui, sans-serif;
-  }
 }
