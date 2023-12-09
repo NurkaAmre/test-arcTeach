@@ -1,13 +1,18 @@
-import { useState } from 'react'
+
 import './App.css'
+import header from './components/header'
+import footer from './components/footer'
+import TaskForm from './components/TaskForm'
 
 function App() {
   
 
   return (
-    <>
-      <h1 className='text-red-400'>HELLO App</h1>
-    </>
+    <div>
+      <header />
+      <TaskForm />
+      <footer />
+    </div>
   )
 }
 
