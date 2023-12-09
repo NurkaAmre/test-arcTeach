@@ -1,17 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-const header = () => {
+const Header: React.FC = () => {
   return (
-    <div>
-      <h2>ARC Teach</h2>
-      <ul>
-          <li>Home</li>
-          <li>Lessons</li>
-          <li>Resources</li>
-          <li>About</li>
-      </ul>
-    </div>
-  )
-}
+    <header className="bg-radial-header py-4 px-6 flex justify-between items-center">
+      <div className="text-white text-2xl font-bold">ARC Teach</div>
+      <nav className="space-x-4">
+        <a href="/" className="text-white hover:text-gray-300">Home</a>
+        <a href="/tasks" className="text-white hover:text-gray-300">Tasks</a>
+        <a href="/about" className="text-white hover:text-gray-300">About</a>
+      </nav>
+    </header>
+  );
+};
 
-export default header
+export default Header;
