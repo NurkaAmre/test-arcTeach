@@ -4,19 +4,19 @@ const TaskList = () => {
       name: 'Example Task 1',
       description: 'Description for Example Task 1',
       completed: false,
-      status: 'Pending',
+      status: 'Completed',
     },
     {
       name: 'Example Task 2',
       description: 'Description for Example Task 2',
       completed: true,
-      status: 'Completed',
+      status: 'Pending',
     },
       {
       name: 'Example Task 3',
       description: 'Description for Example Task 3',
       completed: true,
-      status: 'Completed',
+      status: 'pending',
     },
 
   ];
