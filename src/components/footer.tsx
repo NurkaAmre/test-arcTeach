@@ -1,5 +1,3 @@
-
-
 const Footer = () => {
   return (
     <footer className="bg-radial-footer py-6 text-white text-center">
