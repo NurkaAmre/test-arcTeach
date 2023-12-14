@@ -8,11 +8,11 @@ const TaskForm = () => {
   return (
     <form className="flex flex-col items-center p-[10rem]">
         <h1 className="text-cyan-600 font-bold text-4xl text-center">Add your Tasks</h1>
-        <div className="text-white flex flex-col my-5">
+        <div className="text-black flex flex-col my-5">
            <input
           type="text"
           placeholder="Task Name"
-          className="bg-gray-200 p-2 rounded-lg my-2"
+          className="bg-gray-00 p-2 rounded-lg my-2"
         />
          <textarea
           placeholder="Task Description"

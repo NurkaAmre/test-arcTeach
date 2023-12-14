@@ -1,44 +1,80 @@
-const TaskList = () => {
-  const tasks = [
+import React, { useState } from 'react';
+
+interface Task {
+  id: number;
+  name: string;
+  description: string;
+  completed: boolean;
+  status: string;
+}
+
+const TaskList: React.FC = () => {
+  const initialTasks = [
     {
-      name: 'Example Task 1',
-      description: 'Description for Example Task 1',
+      name: 'Cooking Beshbarmak',
+      description: 'Have to cook beshbarmak for my family',
       completed: false,
       status: 'Completed',
     },
     {
-      name: 'Example Task 2',
-      description: 'Description for Example Task 2',
+      name: 'Pair Programming',
+      description: 'Have to do pair programming with my friend',
       completed: true,
       status: 'Pending',
     },
-      {
-      name: 'Example Task 3',
-      description: 'Description for Example Task 3',
+    {
+      name: 'Clean my room',
+      description: 'Clean my room and make it tidy',
       completed: true,
-      status: 'pending',
+      status: 'Pending',
     },
-
   ];
 
-  const toggleTask = (index: number) => {
-    console.log(`Toggled task at index ${index}`);
+  const [tasks, setTasks] = useState<Task[]>(initialTasks);
+
+  const handleStatusChange = (taskId: number, selectedStatus: string) => {
+    const updatedTasks = tasks.map(task => {
+      if (task.id === taskId) {
+        return { ...task, status: selectedStatus };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+  };
+
+  const getDotColor = (status: string): string => {
+    switch (status.toLowerCase()) {
+      case 'completed':
+        return 'bg-green-500';
+      case 'in progress':
+        return 'bg-orange-500';
+      case 'pending':
+        return 'bg-red-500';
+      default:
+        return '';
+    }
   };
 
   return (
-    <div>
-      <h2>Task List</h2>
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>
-            <input
-              type="checkbox"
-              checked={task.completed}
-              onChange={() => toggleTask(index)}
-            />
-            <span className={task.completed ? 'line-through' : ''}>{task.name}</span>
-            <p>{task.description}</p>
-            <span>Status: {task.status}</span>
+    <div className="h-90vh flex flex-col items-center px-[10rem] py-[5rem]">
+      <h2 className="text-cyan-600 font-bold text-4xl text-center">Task List</h2>
+      <ul className="py-[2rem] text-gray-300">
+        {tasks.map(task => (
+          <li key={task.id} className="bg-slate-500 rounded-md m-[2rem] py-2 px-4 flex items-center">
+            <div className={`h-4 w-4 rounded-full ${getDotColor(task.status)} mr-2`} />
+            <div className="flex-1">
+              <h3 className="text-xl font-bold">{task.name}</h3>
+              <p>{task.description}</p>
+            </div>
+            <select
+              value={task.status}
+              onChange={(e) => handleStatusChange(task.id, e.target.value)}
+              className="px-4 py-2 rounded bg-gray-300 text-gray-700"
+            >
+              <option value="Completed">Completed</option>
+              <option value="Pending">Pending</option>
+              <option value="In Progress">In Progress</option>
+            </select>
           </li>
         ))}
       </ul>
@@ -47,4 +83,3 @@ const TaskList = () => {
 };
 
 export default TaskList;
-
