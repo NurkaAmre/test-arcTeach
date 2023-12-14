@@ -1,5 +1,3 @@
-// reducers.ts
-
 import * as actionTypes from '../types/actionTypes';
 import { TaskState } from '../types/taskTypes';
 
